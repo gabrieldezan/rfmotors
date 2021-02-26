@@ -70,27 +70,27 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <h2 class="section-title">Como funciona</h2>
-                        <p class="section-subtitle">Em três passos te explicamos como seu veículo é vendido sem enrolação na negociação.</p>
+                        <p class="section-subtitle">Em três passos te explicamos como seu veículo é vendido de forma rápida e segura.</p>
                     </div>
                     <div class="col-md-4">
                         <div class="main-services">
                             <img src="images/Foto-01.png" class="width-100" alt="pic">
                             <h3>01</h3>
-                            <p>Você traz o seu carro e nossa equipe faz a avaliação gratuitamente.</p>
+                            <p>Você agenda uma avaliação gratuitamente com  nossa equipe. Vamos até você ou você vem até nós, como preferir.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="main-services">
                             <img src="images/Foto-02.png" class="width-100" alt="pic">
                             <h3>02</h3>
-                            <p>Anunciamos seu carro para centenas de garagistas realizarem as ofertas.</p>
+                            <p>Anunciamos seu carro em nossa plataforma com centenas de lojistas parceiros, para que assim possam realizar as melhores propostas.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="main-services">
                             <img src="images/Foto-03.png" class="width-100" alt="pic">
                             <h3>03</h3>
-                            <p>Curabitur quam etsum lacus netsum nulat iaculis ets vitae etsum nisle varius sed aliquam ets vitae netsum.</p>
+                            <p>Em até 60 minutos fechamos a venda de seu veículo, e você Recebe seu dinheiro no ato.</p>
                         </div>
                     </div>
                 </div>
@@ -111,21 +111,21 @@
                         <div class="feature-box wow fadeIn" data-wow-delay="0.25s" style="visibility: visible; animation-delay: 0.25s; animation-name: fadeIn;">
                             <i class="fas fa-tachometer-alt"></i>
                             <h4>Agilidade</h4>
-                            <p>Faça a avaliação e receba as melhores propostas de compra em até 60 minutos.</p>
+                            <p>A maneira rápida e segura de vender seu veículo.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="feature-box wow fadeIn" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeIn;">
                             <i class="fas fa-chart-line"></i>
                             <h4>Comodidade</h4>
-                            <p>Conte com todo o suporte de nossa equipe, do início ao fim. Deixe a burocracia com a gente!</p>
+                            <p>Conte com todo o suporte de nossa equipe, e o melhor cuidamos de toda parte burocrática do inicio ao fim.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="feature-box wow fadeIn" data-wow-delay="0.75s" style="visibility: visible; animation-delay: 0.75s; animation-name: fadeIn;">
                             <i class="fas fa-bell"></i>
                             <h4>Segurança</h4>
-                            <p>Aqui você não abre sua casa para estranhos e a transferência de propriedade do carro é iniciada na hora!</p>
+                            <p>Na RF Motors seu veículo tem valor. Aqui você vende.</p>
                         </div>
                     </div>
                 </div>
@@ -134,16 +134,16 @@
                         <div class="feature-box wow fadeIn" data-wow-delay="1s" style="visibility: visible; animation-delay: 1s; animation-name: fadeIn;">
                             <i class="fas fa-hand-holding-usd"></i>
                             <h4>Processo garantido</h4>
-                            <p>Não há compromisso de venda e nenhum tipo de custo por isso. A decisão é sempre sua!</p>
+                            <p>A gente vende e você recebe seu dinheiro em até 1h.</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
+<!--                    <div class="col-md-4">
                         <div class="feature-box wow fadeIn" data-wow-delay="1.25s" style="visibility: visible; animation-delay: 1.25s; animation-name: fadeIn;">
                             <i class="fas fa-rocket"></i>
                             <h4>Grátis</h4>
                             <p>Isso mesmo! Você não paga nada pelo serviço.</p>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </section>
