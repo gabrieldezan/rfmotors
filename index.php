@@ -34,13 +34,13 @@
                         </button>
                         <div class="navbar-collapse collapse" id="navbarCollapse" style="">
                             <ul class="navbar-nav ml-auto">
-                                <li><a href="#home">Início</a></li>
-                                <li><a href="#about">Como Funciona</a></li>
-                                <li><a href="#features">Vantagens</a></li>
-                                <li><a href="#showcase">Clientes</a></li>
+                                <li><a href="#inicio">Início</a></li>
+                                <li><a href="#como-funciona">Como Funciona</a></li>
+                                <li><a href="#vantagens">Vantagens</a></li>
+                                <li><a href="#clientes">Clientes</a></li>
                                 <li><a href="#depoimentos">Depoimentos</a></li>
                                 <li><a href="#sobre">Sobre</a></li>
-                                <li class="discover-link"><a href="#contact" class="external discover-btn">Agende sua Avaliação</a></li>
+                                <li class="discover-link"><a href="#contato" class="external discover-btn">Agende sua Avaliação</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -49,7 +49,7 @@
         </header>
 
         <?php /* HOME */ ?>
-        <section class="home-section" id="home">
+        <section class="home-section" id="inicio">
             <div class="container">
                 <div class="row">
                     <div class="col-md-5 padding-top-80">
@@ -65,7 +65,7 @@
         </section>
 
         <?php /* COMO FUNCIONA */ ?>
-        <section class="section-grey section-top-border section-bottom-border" id="about">
+        <section class="section-grey section-top-border section-bottom-border" id="como-funciona">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
@@ -98,7 +98,7 @@
         </section>
 
         <?php /* VANTAGENS */ ?>
-        <section class="section-white section-bottom-border" id="features">
+        <section class="section-white section-bottom-border" id="vantagens">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center padding-bottom-10">
@@ -149,7 +149,7 @@
         </section>
 
         <?php /* CLIENTES */ ?>
-        <section class="section-blue" id="showcase">
+        <section class="section-blue" id="clientes">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12 text-center">
@@ -262,7 +262,7 @@
                             <li><i class="fa fa-check"></i> Fácil.</li>
                             <li><i class="fa fa-check"></i> Transparente.</li>
                         </ul>
-                        <a href="#contact" class="btn-blue scrool">Vamos fazer negócio?</a>
+                        <a href="#contato" class="btn-blue scrool">Vamos fazer negócio?</a>
                     </div>
                     <div class="col-md-6">
                         <img src="images/sobre.jpg" class="hero-image width-100 box-shadow" alt="pic">
@@ -272,12 +272,11 @@
         </section>
 
         <?php /* CONTATO */ ?>
-        <section class="section-white" id="contact">
+        <section class="section-white" id="contato">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
                         <h4>Entre em contato</h4>
-                        <p class="contact_success_box" style="display:none;">We received your message and you'll hear from us soon. Thank You!</p>
                         <form id="contact-form" class="contact" action="php/contact.php" method="post">
                             <input class="contact-input white-input" required="" name="contact_names" placeholder="Seu Nome*" type="text">
                             <input class="contact-input white-input" required="" name="contact_email" placeholder="Seu E-mail*" type="email">
