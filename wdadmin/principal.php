@@ -244,6 +244,14 @@ if (isset($_SESSION['wd_logado'])):
                                 <li class="nav-small-cap">MENU</li>
                                 <li><a class="waves-effect waves-dark" href="<?php echo URL ?>wdadmin/inicio"><i class="mdi mdi-home"></i><span class="hide-menu">Inicio</span></a></li>
                                 <li>
+                                    <a class="has-arrow waves-effect waves-dark" aria-expanded="false"><i class="mdi mdi-car"></i><span class="hide-menu">Controle RF Motors</span></a>
+                                    <ul aria-expanded="false" class="collapse">
+                                        <li><a href="<?php echo URL ?>wdadmin/veiculo">Veículos</a></li>
+                                        <li><a href="<?php echo URL ?>wdadmin/veiculo-marcas">Marcas</a></li>
+                                        <li><a href="<?php echo URL ?>wdadmin/veiculo-opcionais">Opcionais</a></li>
+                                    </ul>
+                                </li>
+                                <li>
                                     <a class="has-arrow waves-effect waves-dark" aria-expanded="false"><i class="mdi mdi-pencil"></i><span class="hide-menu">Conteúdo Personalizado</span></a>
                                     <ul id="lista_conteudo_personalizado" aria-expanded="false" class="collapse"></ul>
                                 </li>
@@ -398,13 +406,39 @@ if (isset($_SESSION['wd_logado'])):
                     </div>
                 </div>
             </div>
+            
+            <!--MODAL VISUALIZAR VEÍCULO-->
+            <div class="modal fade" id="modal_visualizar_veiculo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><i class="far fa-eye fa-fw"></i> Visualizar Veículo</h5>
+                        </div>
+                        <div class="modal-body">
+                            🚘 <b>*<span id="vsTitulo"></span>*</b><br/><br/>
+                            🗓️ <b>Ano: </b> <span id="vsAno"></span><br/>
+                            🧭 <b>Km: </b> <span id="vsKm"></span><br/>
+                            🗺️ <b>Placa: </b> <span id="vsPlacaResumida"></span><br/>
+                            🕹️ <b>Câmbio: </b> <span id="vsCambio"></span><br/>
+                            ⛽ <b>Combustível: </b> <span id="vsCombustivel"></span><br/>
+                            ✅ <b>Opcionais: </b> <span id="vsOpcionais"></span><br/>
+                            👁️ <b>Observações: </b> <span id="vsObservacoes"></span><br/>
+                            💵 <b>Fipe: </b> <span id="vsValorFipe"></span><br/>
+                            💰 <b>Valor: </b><span id="vsValorVenda"></span>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!--MODAL EXCLUIR ARQUIVO-->
             <div class="modal fade" id="modal_confirma_exclusao_arquivo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title"><i class="far fa-trash-alt fa-fw"></i> Exluir Arquivo</h5>
+                            <h5 class="modal-title"><i class="far fa-trash-alt fa-fw"></i> Excluir Arquivo</h5>
                         </div>
                         <div class="modal-body">
                             Deseja realmente excluir este arquivo?

@@ -30,6 +30,7 @@ $(document).ready(function () {
                 if (data === "CE") {
                     AvisoPersonalizado("E-mail já cadastrado!");
                 } else if (data > 0) {
+                    $("#inputIdUsuarioCliente").val() === "" ? AtualizaIdUrl(data) : "";
                     $("#inputIdUsuarioCliente").val(data);
                     verifica_edicao();
                     Sucesso();

@@ -21,6 +21,7 @@ $(document).ready(function () {
             processData: false,
             success: function (data) {
                 if (data > 0) {
+                    $("#inputIdBannersSlideshow").val() === "" ? AtualizaIdUrl(data) : "";
                     $("#inputIdBannersSlideshow").val(data);
                     verifica_edicao();
                     Sucesso();

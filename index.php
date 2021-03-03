@@ -256,7 +256,7 @@
                 <div class="row">
                     <div class="col-md-6 padding-top-20">
                         <h3>Conheça mais sobre a RF Motors.</h3>
-                        <p>Mais de 16 anos no mercado automobilístico. Com essa experiência, Fernando, Osnir e Otávio, amigos e companheiros profissionais de longa data, fizeram a Carro Vendido acontecer. Atendendo às necessidades do mercado desde 2018, a plataforma nasceu para simplificar o processo de compra e venda de veículos.</p>
+                        <p>A mais de 10 anos Rafael iniciou como vendedor, prestando serviços para seus logistas, parceiros e colaboradores da região de Cascavel-PR. Conquistou credibilidade, confiança e sabedoria se tornando avaliador automotivo. Com seu conhecimento a RF Motors nasceu, para facilitar você a vender seu veículo com transparência, agilidade e segurança. </p>
                         <ul class="benefits">
                             <li><i class="fa fa-check"></i> Rápido.</li>
                             <li><i class="fa fa-check"></i> Fácil.</li>

@@ -23,6 +23,7 @@ $(document).ready(function () {
             processData: false,
             success: function (data) {
                 if (data > 0) {
+                    $("#inputIdCases").val() === "" ? AtualizaIdUrl(data) : "";
                     $("#inputIdCases").val(data);
                     verifica_edicao();
                     Sucesso();

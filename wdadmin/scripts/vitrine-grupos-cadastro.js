@@ -20,6 +20,7 @@ $(document).ready(function () {
             processData: false,
             success: function (data) {
                 if (data > 0) {
+                    $("#inputIdVitrineGrupos").val() === "" ? AtualizaIdUrl(data) : "";
                     $("#inputIdVitrineGrupos").val(data);
                     CloseLoading();
                     Sucesso();

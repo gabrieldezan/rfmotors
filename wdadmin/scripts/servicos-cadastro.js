@@ -39,6 +39,7 @@ $(document).ready(function () {
             processData: false,
             success: function (data) {
                 if (data > 0) {
+                    $("#inputIdServicos").val() === "" ? AtualizaIdUrl(data) : "";
                     $("#inputIdServicos").val(data);
                     CloseLoading();
                     Sucesso();

@@ -56,6 +56,7 @@ $(document).ready(function () {
             processData: false,
             success: function (data) {
                 if (data > 0) {
+                    $("#inputIdBlogPostagens").val() === "" ? AtualizaIdUrl(data) : "";
                     $("#inputIdBlogPostagens").val(data);
                     verifica_edicao();
                     Sucesso();

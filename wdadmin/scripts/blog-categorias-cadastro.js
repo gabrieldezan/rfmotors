@@ -25,6 +25,7 @@ $(document).ready(function () {
             processData: false,
             success: function (data) {
                 if (data > 0) {
+                    $("#inputIdCategoriasBlog").val() === "" ? AtualizaIdUrl(data) : "";
                     $("#inputIdCategoriasBlog").val(data);
                     $("#inputIdCategoriasSubBlog").val(data);
                     verifica_edicao();

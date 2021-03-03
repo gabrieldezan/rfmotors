@@ -3,15 +3,15 @@ $(document).ready(function () {
     vsUrl = $("#vsUrl").val();
 
     /*ALTERA TITULO DA PAGINA*/
-    $(this).attr("title", "WD Admin - Cadastro de Conteúdo Personalizado");
+    $(this).attr("title", "WD Admin - Cadastro de Marcas de Veiculos");
 
-    $("#form_conteudo_personalizado").on('submit', (function (e) {
+    $("#form_veiculo_marcas").on('submit', (function (e) {
 
         Loading();
 
         e.preventDefault();
         $.ajax({
-            url: vsUrl + "controllers/SalvaDadosConteudoPersonalizado.php",
+            url: vsUrl + "controllers/SalvaDadosVeiculoMarcas.php",
             type: "POST",
             async: true,
             data: new FormData(this),
@@ -20,9 +20,8 @@ $(document).ready(function () {
             processData: false,
             success: function (data) {
                 if (data > 0) {
-                    $("#inputIdConteudoPersonalizado").val() === "" ? AtualizaIdUrl(data) : "";
-                    $("#inputIdConteudoPersonalizado").val(data);
-                    lista_conteudo_personalizado_menu();
+                    $("#inputIdVeiculoMarcas").val() === "" ? AtualizaIdUrl(data) : "";
+                    $("#inputIdVeiculoMarcas").val(data);
                     CloseLoading();
                     Sucesso();
                 } else {
@@ -47,44 +46,36 @@ $(document).ready(function () {
 function verifica_edicao() {
 
     /*PEGA ID*/
-    var id = $("#inputIdConteudoPersonalizado").val();
+    var id = $("#inputIdVeiculoMarcas").val();
 
     /*CASO EXISTA O ID, EXECUTA A FUNÇÃO DE EDIÇÃO*/
     if (id !== "") {
-        edita_conteudo_personalizado(id);
+        edita_veiculo_marcas(id);
     } else {
         CloseLoading();
     }
 }
 
-/*CARREGA DADOS DO CONTEÚDO PERSONALIZADO SELECIONADO*/
-function edita_conteudo_personalizado(viIdConteudoPersonalizado) {
+/*CARREGA DADOS DO USUÁRIO SELECIONADO*/
+function edita_veiculo_marcas(viIdVeiculoMarcas) {
 
     $.ajax({
-        url: vsUrl + "controllers/RetornaConteudoPersonalizadoSelecionado.php",
+        url: vsUrl + "controllers/RetornaVeiculoMarcasSelecionado.php",
         type: "POST",
         dataType: "json",
         async: false,
         data: ({
-            viIdConteudoPersonalizado: viIdConteudoPersonalizado
+            viIdVeiculoMarcas: viIdVeiculoMarcas
         }),
         success: function (data) {
             if (data !== 0) {
-                $("#inputTitulo").val(data[0].titulo);
-                $("#inputIcone").val(data[0].icone);
-                $("#inputImagem").val(data[0].imagem);
-                $("#inputImagemLargura").val(data[0].imagem_largura);
-                $("#inputImagemAltura").val(data[0].imagem_altura);
-                $("#inputTexto").val(data[0].texto);
-                $("#inputLink").val(data[0].link);
-                $("#inputData").val(data[0].data);
-                $("#inputHora").val(data[0].hora);
-                $("#inputNumero").val(data[0].numero);
-                $("#inputUrl").val(data[0].url);
+                $("#inputDescricao").val(data[0].descricao);
+                $("#inputDetalhes").val(data[0].detalhes);
+                $("#inputStatus").val(data[0].status);
                 CloseLoading();
             } else {
                 AvisoPersonalizado("Dados não encontrados!");
-                $("#inputIdConteudoPersonalizado").val("");
+                $("#inputIdVeiculoMarcas").val("");
             }
             CloseLoading();
         },

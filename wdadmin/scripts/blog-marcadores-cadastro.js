@@ -20,6 +20,7 @@ $(document).ready(function () {
             processData: false,
             success: function (data) {
                 if (data > 0) {
+                    $("#inputIdMarcadoresBlog").val() === "" ? AtualizaIdUrl(data) : "";
                     $("#inputIdMarcadoresBlog").val(data);
                     CloseLoading();
                     Sucesso();

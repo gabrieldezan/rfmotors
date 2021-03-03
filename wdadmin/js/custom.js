@@ -256,6 +256,10 @@ $(document).ready(function () {
 
 });
 
+function AtualizaIdUrl(id) {
+    window.history.pushState({url: "" + $(this).attr('href')}, $(this).attr('title'), "cadastro/" + id);
+}
+
 function Loading() {
     $(".preloader").fadeIn();
 }
@@ -482,6 +486,21 @@ function abre_modal_visualizar_contato(viIdContatosRecebidos, vsDataRecebimento,
     $("#vsMensagem").html(vsMensagem);
     atualiza_status_contatos_recebidos(viIdContatosRecebidos);
     $("#modal_visualizar_contato").modal("show");
+}
+
+/*ABRE MODAL VISUALIZAR VEÍCULO*/
+function abre_modal_visualizar_veiculo(vsMarca, vsTitulo, vsAnoFab, vsAnoMod, vsKm, vsPlacaResumida, vsOpcionais, vsCambio, vsCombustivel, vsValorFipe, vsValorVenda, vsObservacoes) {
+    $("#vsTitulo").html(vsMarca + " " + vsTitulo);
+    $("#vsAno").html(vsAnoFab + "/" + vsAnoMod);
+    $("#vsKm").html(vsKm);
+    $("#vsPlacaResumida").html(vsPlacaResumida);
+    $("#vsCambio").html(vsCambio);
+    $("#vsCombustivel").html(vsCombustivel);
+    $("#vsOpcionais").html(vsOpcionais);
+    $("#vsObservacoes").html(vsObservacoes);
+    $("#vsValorFipe").html(vsValorFipe);
+    $("#vsValorVenda").html(vsValorVenda);
+    $("#modal_visualizar_veiculo").modal("show");
 }
 
 /*ATUALIZA STATUS CONTATOS RECEBIDOS*/

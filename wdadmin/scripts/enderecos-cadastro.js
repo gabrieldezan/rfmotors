@@ -20,6 +20,7 @@ $(document).ready(function () {
             processData: false,
             success: function (data) {
                 if (data > 0) {
+                    $("#inputIdEnderecos").val() === "" ? AtualizaIdUrl(data) : "";
                     $("#inputIdEnderecos").val(data);
                     CloseLoading();
                     Sucesso();

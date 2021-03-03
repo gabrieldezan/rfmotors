@@ -20,6 +20,7 @@ $(document).ready(function () {
             processData: false,
             success: function (data) {
                 if (data > 0) {
+                    $("#inputIdTamanhoImagens").val() === "" ? AtualizaIdUrl(data) : "";
                     $("#inputIdTamanhoImagens").val(data);
                     CloseLoading();
                     Sucesso();

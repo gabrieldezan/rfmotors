@@ -21,6 +21,7 @@ $(document).ready(function () {
             processData: false,
             success: function (data) {
                 if (data > 0) {
+                    $("#inputIdPerguntasFrequentes").val() === "" ? AtualizaIdUrl(data) : "";
                     $("#inputIdPerguntasFrequentes").val(data);
                     CloseLoading();
                     Sucesso();

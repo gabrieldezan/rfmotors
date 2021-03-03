@@ -44,6 +44,7 @@ $(document).ready(function () {
             processData: false,
             success: function (data) {
                 if (data > 0) {
+                    $("#inputIdBlogImagens").val() === "" ? AtualizaIdUrl(data) : "";
                     $("#inputIdBlogImagens").val(data);
                     $("#botao_salvar").attr("disabled", true);
                     CloseLoading();

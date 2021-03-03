@@ -40,7 +40,7 @@
                             <form id="form_clientes" method="post" enctype="multipart/form-data">
                                 <input type="hidden" id="inputIdClientes" name="inputIdClientes" value="<?php echo $id ?>" />
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label col-form-label-sm text-right">Imagem *</label>
+                                    <label class="col-sm-3 col-form-label col-form-label-sm text-right">Imagem</label>
                                     <div class="col-sm-2">
                                         <input type="hidden" id="inputImagemAtual" name="inputImagemAtual" />
                                         <img id="imgImagemAtual" name="imgImagemAtual" src="" class="img-fluid" />

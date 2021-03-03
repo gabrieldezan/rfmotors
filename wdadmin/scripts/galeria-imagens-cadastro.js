@@ -25,6 +25,7 @@ $(document).ready(function () {
             processData: false,
             success: function (data) {
                 if (data > 0) {
+                    $("#inputIdGaleriaImagens").val() === "" ? AtualizaIdUrl(data) : "";
                     $("#inputIdGaleriaImagens").val(data);
                     verifica_edicao();
                     Sucesso();

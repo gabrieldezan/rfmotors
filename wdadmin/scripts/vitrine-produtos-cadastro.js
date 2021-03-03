@@ -110,6 +110,7 @@ $(document).ready(function () {
             processData: false,
             success: function (data) {
                 if (data > 0) {
+                    $("#inputIdVitrineProdutosCadastro").val() === "" ? AtualizaIdUrl(data) : "";
                     $("#inputIdVitrineProdutosCadastro").val(data);
                     $("#inputIdVitrineProduto").val(data);
                     verifica_edicao();

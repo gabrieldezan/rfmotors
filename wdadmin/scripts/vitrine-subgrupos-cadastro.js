@@ -23,6 +23,7 @@ $(document).ready(function () {
             processData: false,
             success: function (data) {
                 if (data > 0) {
+                    $("#inputIdVitrineSubgrupo").val() === "" ? AtualizaIdUrl(data) : "";
                     $("#inputIdVitrineSubgrupo").val(data);
                     edita_vitrine_subgrupo(data);
                     Sucesso();

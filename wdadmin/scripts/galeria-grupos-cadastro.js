@@ -20,6 +20,7 @@ $(document).ready(function () {
             processData: false,
             success: function (data) {
                 if (data > 0) {
+                    $("#inputIdGaleriaGrupos").val() === "" ? AtualizaIdUrl(data) : "";
                     $("#inputIdGaleriaGrupos").val(data);
                     CloseLoading();
                     Sucesso();

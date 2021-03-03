@@ -21,6 +21,7 @@ $(document).ready(function () {
             processData: false,
             success: function (data) {
                 if (data > 0) {
+                    $("#inputIdRedesSociais").val() === "" ? AtualizaIdUrl(data) : "";
                     $("#inputIdRedesSociais").val(data);
                     verifica_edicao();
                     Sucesso();
