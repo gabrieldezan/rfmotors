@@ -46,6 +46,8 @@ class ConteudoPersonalizado extends Conexao {
                         ?,
                         ?,
                         ?,
+                        ?,
+                        ?,
                         ?
                     );
                 ');

@@ -1,17 +1,17 @@
 <?php
 
-define("CLIENTE", "base");
-define("URL_SITE", "https://webdezan.com.br/");
+define("CLIENTE", "RF Motors - Consultoria Automotiva");
+define("URL_SITE", "https://rfmotorscascavel.com.br/");
 
 /* CONFIG LOCAL */
 define("URL", "/rfmotors/");
 define("SERVIDOR", "127.0.0.1");
 define("BANCO", "rfmotors_site");
 define("USUARIO", "root");
-define("SENHA", "!@#gd94!@#");
+define("SENHA", "");
 
 /* CONFIG SERVIDOR */
-//define("URL", "/");
+//define("URL", "/site/");
 //define("SERVIDOR", "127.0.0.1");
 //define("BANCO", "rfmotors_site");
 //define("USUARIO", "rfmotors_admin");

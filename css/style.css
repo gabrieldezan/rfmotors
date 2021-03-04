@@ -600,7 +600,7 @@ ul.footer_social li a i {
 }
 
 ul.footer_social li a i:hover {
-    color:#b2d8fd;
+    color:#000;
 }
 
 /* ========================================================== */
@@ -1056,7 +1056,7 @@ a.blog-icons:hover{
 /* 						    09. CONTACT                       */
 /* ========================================================== */
 
-iframe.contact-maps {
+.contact-maps iframe {
     margin-bottom: 20px;
     padding: 10px 10px;
     border-radius: 8px;
@@ -1065,6 +1065,7 @@ iframe.contact-maps {
 }
 
 p.contact-info{
+    font-weight: 600;
     margin-bottom:8px;
 }
 
@@ -1074,7 +1075,10 @@ p.contact-info a{
 }
 
 p.contact-info a:hover{
-    text-decoration: underline;
+    color: #000;
+    transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
 }
 
 p.contact-info i{
@@ -1120,7 +1124,7 @@ textarea{
     border-radius: 5px 5px 5px 5px;
 }
 
-input.contact-submit{
+button.contact-submit{
     color: #fff;
     background: #e9560d;
     border: none;
@@ -1139,9 +1143,9 @@ input.contact-submit{
     -webkit-transition: all .3s ease-in-out;
 }
 
-input.contact-submit:hover{
+button.contact-submit:hover{
     color: #fff;
-    background: #037aef;
+    background: #000;
 }
 
 input.white-input::-webkit-input-placeholder,
@@ -1563,17 +1567,17 @@ p.testimonial-single{
 
 /* g) Features List */
 
-ul.benefits {
+.benefits ul {
     margin-bottom: 30px;
 }
 
-ul.benefits li {
+.benefits ul li {
     font-size: 17px;
     line-height: 26px;
     margin-bottom: 8px;
 }
 
-ul.benefits li i {
+.benefits ul li i {
     font-size: 18px;
     line-height: 18px;
     margin-right: 8px;
@@ -1782,4 +1786,11 @@ ul.partners-mentions li img:hover {
         margin-top: 12px;
     }
 
+}
+
+#carouselIndicators li:last-child {
+    display: none;
+}
+#carouselIndicators2 li:last-child {
+    display: none;
 }

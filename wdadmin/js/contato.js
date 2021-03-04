@@ -14,32 +14,34 @@ $(document).ready(function () {
     /*FORM*/
     $("#form_contato").on('submit', (function (e) {
 
-        $("#botao_enviar_mensagem").html("Aguarde...");
-        $("#botao_enviar_mensagem").prop("disabled", true);
+        $('#botao_enviar_mensagem').html('<i class="fa fa-spinner fa-pulse"></i> Aguarde...');
+        $("#botao_enviar_mensagem").prop('disabled', true);
 
         e.preventDefault();
         $.ajax({
             url: vsUrl + "wdadmin/controllers/SalvaDadosContatosRecebidos.php",
             type: "POST",
+            async: true,
             data: new FormData(this),
             contentType: false,
             cache: false,
             processData: false,
-            success: function (data) {
-                if (data == "1") {
+            success: function (vsReturn) {
+                $("#botao_enviar_mensagem").html('Enviar');
+                $("#botao_enviar_mensagem").prop("disabled", false);
+                if (vsReturn == "1") {
                     LimpaForm();
                     Sucesso();
                 } else {
                     Aviso();
                 }
             },
-            error: function () {
-                Aviso();
+            error: function (vsReturn) {
+                $("#botao_enviar_mensagem").html('Enviar');
+                $("#botao_enviar_mensagem").prop("disabled", false);
+                alert('Erro: ' + vsReturn);
             }
         });
-
-        $("#botao_enviar_mensagem").html('Enviar Mensagem');
-        $("#botao_enviar_mensagem").prop("disabled", false);
         return false;
     }));
 

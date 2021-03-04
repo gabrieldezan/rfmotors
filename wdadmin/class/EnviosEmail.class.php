@@ -138,7 +138,7 @@ class EnviosEmail extends Conexao {
                                             <td data-bgcolor='bg-module' bgcolor='#eaeced'>
                                                 <table class='flexible' width='600' align='center' style='margin:0 auto;' cellpadding='0' cellspacing='0'>
                                                     <tr>
-                                                        <td class='img-flex'><img src='https://webdezan.com.br/images/cabecalho.png' style='vertical-align:top;' width='600' height='200'/></td>
+                                                        <td class='img-flex'><img src='https://webdezan.com.br/images/cabecalho.webp' style='vertical-align:top;' width='600' height='200'/></td>
                                                     </tr>
                                                     <tr>
                                                         <td data-bgcolor='bg-block' class='holder' style='padding:58px 50px 52px;' bgcolor='#f9f9f9'>
@@ -160,7 +160,7 @@ class EnviosEmail extends Conexao {
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td class='img-flex'><img src='https://webdezan.com.br/images/rodape.png' style='vertical-align:top;' width='600' height='95'/></td>
+                                                        <td class='img-flex'><img src='https://webdezan.com.br/images/rodape.webp' style='vertical-align:top;' width='600' height='95'/></td>
                                                     </tr>
                                                     <tr><td height='28'></td></tr>
                                                 </table>
