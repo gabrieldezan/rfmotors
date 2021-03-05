@@ -6,6 +6,7 @@ class Veiculo extends Conexao {
     /* =============== VARIAVEIS =============== */
 
     private $id_veiculo;
+    private $cliente;
     private $titulo;
     private $ano_fabricacao;
     private $ano_modelo;
@@ -19,7 +20,6 @@ class Veiculo extends Conexao {
     private $observacoes;
     private $status;
     private $id_veiculo_marca;
-    private $id_clientes;
     private $retorno_dados;
 
     /* =============== FUNÇÃO SALVA DADOS =============== */
@@ -32,6 +32,7 @@ class Veiculo extends Conexao {
             if ($this->id_veiculo === "") {
                 $salva_dados = $pdo->prepare('
                     INSERT INTO veiculo (
+                        cliente,
                         titulo, 
                         ano_fabricacao, 
                         ano_modelo, 
@@ -44,8 +45,7 @@ class Veiculo extends Conexao {
                         valor_venda, 
                         observacoes, 
                         status, 
-                        id_veiculo_marca, 
-                        id_clientes
+                        id_veiculo_marca
                     ) VALUES (
                         ?,
                         ?,
@@ -64,6 +64,7 @@ class Veiculo extends Conexao {
                     );
                 ');
                 $salva_dados->execute(array(
+                    "$this->cliente",
                     "$this->titulo",
                     "$this->ano_fabricacao",
                     "$this->ano_modelo",
@@ -76,13 +77,13 @@ class Veiculo extends Conexao {
                     "$this->valor_venda",
                     "$this->observacoes",
                     "$this->status",
-                    "$this->id_veiculo_marca",
-                    "$this->id_clientes"
+                    "$this->id_veiculo_marca"
                 ));
                 $this->setRetorno_dados($pdo->lastInsertId());
             } else {
                 $salva_dados = $pdo->prepare('
                     UPDATE veiculo SET 
+                        cliente = ?,
                         titulo = ?,
                         ano_fabricacao = ?,
                         ano_modelo = ?,
@@ -95,12 +96,12 @@ class Veiculo extends Conexao {
                         valor_venda = ?,
                         observacoes = ?,
                         status = ?,
-                        id_veiculo_marca = ?,
-                        id_clientes = ?
+                        id_veiculo_marca = ?
                     WHERE 
                         id_veiculo = ?;
                 ');
                 $salva_dados->execute(array(
+                    "$this->cliente",
                     "$this->titulo",
                     "$this->ano_fabricacao",
                     "$this->ano_modelo",
@@ -114,7 +115,6 @@ class Veiculo extends Conexao {
                     "$this->observacoes",
                     "$this->status",
                     "$this->id_veiculo_marca",
-                    "$this->id_clientes",
                     "$this->id_veiculo"
                 ));
                 $this->setRetorno_dados($this->id_veiculo);
@@ -140,10 +140,51 @@ class Veiculo extends Conexao {
                     v.titulo, 
                     v.ano_fabricacao, 
                     v.ano_modelo,
-                    v.km,
                     v.placa,
+                    v.valor_venda,
+                    v.cliente,
+                    CASE v.status
+                        WHEN 1 THEN 'info'
+                        WHEN 2 THEN 'success'
+                        WHEN 3 THEN 'danger'
+                    END AS status_class,
+                    CASE v.status
+                        WHEN 1 THEN 'À venda'
+                        WHEN 2 THEN 'Vendido'
+                        WHEN 3 THEN 'Cancelado'
+                    END AS status
+                FROM
+                    veiculo v
+                    INNER JOIN veiculo_marca vm ON v.id_veiculo_marca = vm.id_veiculo_marca
+            ");
+            $consulta_dados->execute();
+            if ($consulta_dados->rowCount() > 0):
+                $this->setRetorno_dados(json_encode($consulta_dados->fetchAll()));
+                return true;
+            else:
+                return false;
+            endif;
+        } catch (PDOException $e) {
+            echo 'Erro: ' . $e->getMessage();
+            return false;
+        }
+    }
+
+    /* =============== FUNÇÃO VISUALIZAR INFORMAÇÕES =============== */
+
+    public function informacoes_whatsapp() {
+
+        try {
+            $pdo = parent::getDB();
+
+            $informacoes_whatsapp = $pdo->prepare("
+                SELECT
+                    vm.descricao AS marca,
+                    v.titulo, 
+                    v.ano_fabricacao, 
+                    v.ano_modelo,
+                    v.km,
                     SUBSTRING(v.placa, 1, 1) AS placa_resumida,
-                    v.opcionais,
                     CASE v.cambio
                         WHEN 1 THEN 'Manual'
                         WHEN 2 THEN 'Automático'
@@ -157,28 +198,21 @@ class Veiculo extends Conexao {
                         WHEN 5 THEN 'Diesel'
                         WHEN 6 THEN 'Elétrico'
                     END AS combustivel,
-                    v.valor_fipe,
-                    v.valor_venda,
+                    REPLACE(v.opcionais,',',', ') AS opcionais,
                     v.observacoes,
-                    c.descricao AS cliente,
-                    CASE v.status
-                        WHEN 1 THEN 'info'
-                        WHEN 2 THEN 'success'
-                        WHEN 3 THEN 'danger'
-                    END AS status_class,
-                    CASE v.status
-                        WHEN 1 THEN 'À venda'
-                        WHEN 2 THEN 'Vendido'
-                        WHEN 3 THEN 'Cancelado'
-                    END AS status
+                    v.valor_fipe,
+                    v.valor_venda
                 FROM
                     veiculo v
-                    INNER JOIN clientes c ON v.id_clientes = c.id_clientes
                     INNER JOIN veiculo_marca vm ON v.id_veiculo_marca = vm.id_veiculo_marca
+                WHERE
+                    id_veiculo =  ?
             ");
-            $consulta_dados->execute();
-            if ($consulta_dados->rowCount() > 0):
-                $this->setRetorno_dados(json_encode($consulta_dados->fetchAll()));
+            $informacoes_whatsapp->execute(array(
+                "$this->id_veiculo"
+            ));
+            if ($informacoes_whatsapp->rowCount() > 0):
+                $this->setRetorno_dados(json_encode($informacoes_whatsapp->fetchAll()));
                 return true;
             else:
                 return false;
@@ -198,6 +232,7 @@ class Veiculo extends Conexao {
 
             $edita_dados = $pdo->prepare("
                 SELECT
+                    cliente,
                     titulo, 
                     ano_fabricacao, 
                     ano_modelo, 
@@ -210,8 +245,7 @@ class Veiculo extends Conexao {
                     valor_venda, 
                     observacoes, 
                     status, 
-                    id_veiculo_marca, 
-                    id_clientes
+                    id_veiculo_marca
                 FROM
                     veiculo
                 WHERE
@@ -236,6 +270,10 @@ class Veiculo extends Conexao {
 
     function getId_veiculo() {
         return $this->id_veiculo;
+    }
+
+    function getCliente() {
+        return $this->cliente;
     }
 
     function getTitulo() {
@@ -290,16 +328,16 @@ class Veiculo extends Conexao {
         return $this->id_veiculo_marca;
     }
 
-    function getId_clientes() {
-        return $this->id_clientes;
-    }
-
     function getRetorno_dados() {
         return $this->retorno_dados;
     }
 
     function setId_veiculo($id_veiculo) {
         $this->id_veiculo = $id_veiculo;
+    }
+
+    function setCliente($cliente) {
+        $this->cliente = $cliente;
     }
 
     function setTitulo($titulo) {
@@ -352,10 +390,6 @@ class Veiculo extends Conexao {
 
     function setId_veiculo_marca($id_veiculo_marca) {
         $this->id_veiculo_marca = $id_veiculo_marca;
-    }
-
-    function setId_clientes($id_clientes) {
-        $this->id_clientes = $id_clientes;
     }
 
     function setRetorno_dados($retorno_dados) {

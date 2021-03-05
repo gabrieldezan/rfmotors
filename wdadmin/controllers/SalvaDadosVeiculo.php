@@ -3,8 +3,8 @@
 require_once "../class/Veiculo.class.php";
 
 $Veiculo = new Veiculo();
+$Veiculo->setCliente($_POST['inputCliente']);
 $Veiculo->setId_veiculo($_POST['inputIdVeiculo']);
-$Veiculo->setId_clientes($_POST['selectClientes']);
 $Veiculo->setTitulo($_POST['inputTitulo']);
 $Veiculo->setAno_fabricacao($_POST['inputAnoFabicacao']);
 $Veiculo->setAno_modelo($_POST['inputAnoModelo']);

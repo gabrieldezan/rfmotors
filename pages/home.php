@@ -156,7 +156,7 @@
                             </ol>
                             <div class="carousel-inner">
                                 <?php
-                                $vsSqlClientes = "SELECT titulo, imagem1 FROM galeria_imagem WHERE id_galeria_grupo = 1 ORDER BY id_galeria_imagem DESC";
+                                $vsSqlClientes = "SELECT titulo, imagem1 FROM galeria_imagem WHERE id_galeria_grupo = 1 ORDER BY id_galeria_imagem LIMIT 8 DESC";
                                 $vrsExecutaClientes = mysqli_query($Conexao, $vsSqlClientes) or die("Erro ao efetuar a operação no banco de dados! <br> Arquivo:" . __FILE__ . "<br>Linha:" . __LINE__ . "<br>Erro:" . mysqli_error($Conexao));
                                 while ($voResultadoClientes = mysqli_fetch_object($vrsExecutaClientes)) {
                                     ?>
@@ -282,7 +282,8 @@
                         }
                         ?>
                         <p class="contact-info"><i class="fas fa-envelope"></i> <a href="<?php echo "mailto:" . $voResultadoConfiguracoes->email ?>"><?php echo $voResultadoConfiguracoes->email ?></a></p>
-                        <p class="contact-info"><i class="fas fa-phone"></i><a href="<?php echo "tel:55" . str_replace(array("(", ")", "-", " "), "", $voResultadoConfiguracoes->whatsapp) ?>"><?php echo $voResultadoConfiguracoes->whatsapp ?></a></p>
+                        <p class="contact-info"><i class="fas fa-phone"></i><a href="<?php echo "tel:55" . str_replace(array("(", ")", "-", " "), "", $voResultadoConfiguracoes->celular1) ?>"><?php echo $voResultadoConfiguracoes->celular1 ?></a></p>
+                        <p class="contact-info"><i class="fab fa-whatsapp"></i><a href="<?php echo "https://api.whatsapp.com/send?l=pt_BR&phone=55" . str_replace(array("(", ")", "-", " "), "", $voResultadoConfiguracoes->whatsapp) ?>"><?php echo $voResultadoConfiguracoes->whatsapp ?></a></p>
                     </div>
                 </div>
             </div>
@@ -321,7 +322,7 @@
                 </div>
             </div>
         </div>
-        
+
         <?php /* BOOTSTRAP */ ?>
         <link href="<?php echo URL . "css/bootstrap.min.css" ?>" rel="stylesheet">
         <?php /* CSS */ ?>

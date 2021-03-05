@@ -42,14 +42,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label col-form-label-sm text-right">Cliente *</label>
                                     <div class="col-sm-8">
-                                        <div class="input-group input-group-sm">
-                                            <select class="form-control form-control-sm" id="selectClientes" name="selectClientes" required></select>
-                                            <div class="input-group-append">
-                                                <a class="btn btn-info" href="<?php echo URL ?>wdadmin/clientes/cadastro" target="_blank">        
-                                                    <i class="fa fa-plus" aria-hidden="true"></i>      
-                                                </a>
-                                            </div>
-                                        </div>
+                                        <input type="text" class="form-control form-control-sm" id="inputCliente" name="inputCliente" placeholder="ex.: João da Silva" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -146,6 +139,7 @@
                                 <div class="form-group row text-right">
                                     <div class="col-sm-11">
                                         <button id="botao_salvar" type="submit" class="btn btn-success btn-sm"><i class="fas fa-save" aria-hidden="true"></i>&nbsp;Salvar</button>
+                                        <button id="informacoes_whatsapp" type="button" class="btn btn-outline-info btn-sm disabled" onclick="abre_modal_visualizar_veiculo_whatsapp($('#inputIdVeiculo').val());" data-toggle="tooltip" title="Visualizar informações para WhatsApp"><i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;Visualizar</button>
                                     </div>
                                 </div>
                             </form>

@@ -42,6 +42,7 @@ $(document).ready(function () {
                 if (data > 0) {
                     $("#inputIdVeiculo").val() === "" ? AtualizaIdUrl(data) : "";
                     $("#inputIdVeiculo").val(data);
+                    $('#informacoes_whatsapp').removeClass("disabled");
                     CloseLoading();
                     Sucesso();
                 } else {
@@ -71,6 +72,7 @@ function verifica_edicao() {
     /*CASO EXISTA O ID, EXECUTA A FUNÇÃO DE EDIÇÃO*/
     if (id !== "") {
         edita_veiculo(id);
+        $('#informacoes_whatsapp').removeClass("disabled");
     } else {
         CloseLoading();
     }
@@ -89,7 +91,7 @@ function edita_veiculo(viIdVeiculo) {
         }),
         success: function (data) {
             if (data !== 0) {
-                $("#selectClientes").val(data[0].id_clientes);
+                $("#inputCliente").val(data[0].cliente);
                 $("#selectMarcas").val(data[0].id_veiculo_marca);
                 $("#inputTitulo").val(data[0].titulo);
                 $("#inputAnoFabicacao").val(data[0].ano_fabricacao);

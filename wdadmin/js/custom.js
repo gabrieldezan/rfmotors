@@ -489,18 +489,35 @@ function abre_modal_visualizar_contato(viIdContatosRecebidos, vsDataRecebimento,
 }
 
 /*ABRE MODAL VISUALIZAR VEÍCULO*/
-function abre_modal_visualizar_veiculo(vsMarca, vsTitulo, vsAnoFab, vsAnoMod, vsKm, vsPlacaResumida, vsOpcionais, vsCambio, vsCombustivel, vsValorFipe, vsValorVenda, vsObservacoes) {
-    $("#vsTitulo").html(vsMarca + " " + vsTitulo);
-    $("#vsAno").html(vsAnoFab + "/" + vsAnoMod);
-    $("#vsKm").html(vsKm);
-    $("#vsPlacaResumida").html(vsPlacaResumida);
-    $("#vsCambio").html(vsCambio);
-    $("#vsCombustivel").html(vsCombustivel);
-    $("#vsOpcionais").html(vsOpcionais);
-    $("#vsObservacoes").html(vsObservacoes);
-    $("#vsValorFipe").html(vsValorFipe);
-    $("#vsValorVenda").html(vsValorVenda);
-    $("#modal_visualizar_veiculo").modal("show");
+function abre_modal_visualizar_veiculo_whatsapp(vsIdVeiculo) {
+
+    $.ajax({
+        url: vsUrl + "controllers/RetornaVeiculoWhatsApp.php",
+        type: "POST",
+        dataType: "json",
+        async: false,
+        data: ({
+            vsIdVeiculo: vsIdVeiculo
+        }),
+        success: function (data) {
+            $("#vsTitulo").html(data[0].marca + " " + data[0].titulo);
+            $("#vsAno").html(data[0].ano_fabricacao + "/" + data[0].ano_modelo);
+            $("#vsKm").html(data[0].km);
+            $("#vsPlacaResumida").html(data[0].placa_resumida);
+            $("#vsCambio").html(data[0].cambio);
+            $("#vsCombustivel").html(data[0].combustivel);
+            $("#vsOpcionais").html(data[0].opcionais);
+            $("#vsObservacoes").html(data[0].observacoes);
+            $("#vsValorFipe").html(data[0].valor_fipe);
+            $("#vsValorVenda").html(data[0].valor_venda);
+            $("#modal_visualizar_veiculo").modal("show");
+        },
+        error: function () {
+            CloseLoading();
+            Erro();
+        }
+    });
+
 }
 
 /*ATUALIZA STATUS CONTATOS RECEBIDOS*/

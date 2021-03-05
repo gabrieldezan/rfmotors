@@ -102,7 +102,7 @@ function carrega_veiculo() {
                             "render": function (data, type, row) {
                                 return "\n\
                                     <a href=\"veiculo/cadastro/" + row.id_veiculo + "\" class=\"btn btn-sm btn-outline-secondary\" data-toggle=\"tooltip\" data-placement=\"left\" title=\"Editar " + row.titulo + "\"><i class=\"fas fa-edit\"></i></a>&nbsp;\
-                                    <button type=\"button\" class=\"btn btn-outline-info btn-sm\" onclick=\"abre_modal_visualizar_veiculo('" + row.marca + "', '" + row.titulo + "', '" + row.ano_fabricacao + "', '" + row.ano_modelo + "', '" + row.km + "', '" + row.placa_resumida + "', '" + row.opcionais + "', '" + row.cambio + "', '" + row.combustivel + "', '" + row.valor_fipe + "', '" + row.valor_venda + "', '" + row.observacoes + "');\" data-toggle=\"tooltip\" title=\"Visualizar " + row.titulo + "\"><i class=\"far fa-eye fa-fw\" aria-hidden=\"true\"></i></button>\
+                                    <button type=\"button\" class=\"btn btn-outline-info btn-sm\" onclick=\"abre_modal_visualizar_veiculo_whatsapp(" + row.id_veiculo + ");\" data-toggle=\"tooltip\" title=\"Visualizar " + row.titulo + "\"><i class=\"far fa-eye fa-fw\" aria-hidden=\"true\"></i></button>\
                                 ";
                             }
                         }
