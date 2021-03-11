@@ -68,6 +68,17 @@
         <script type="text/javascript">
             $("#preloader").fadeOut("slow");
         </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-E906SZ66VP"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'G-E906SZ66VP');
+        </script>
 
     </body>
 

@@ -156,7 +156,7 @@
                             </ol>
                             <div class="carousel-inner">
                                 <?php
-                                $vsSqlClientes = "SELECT titulo, imagem1 FROM galeria_imagem WHERE id_galeria_grupo = 1 ORDER BY id_galeria_imagem LIMIT 8 DESC";
+                                $vsSqlClientes = "SELECT titulo, imagem1 FROM galeria_imagem WHERE id_galeria_grupo = 1 ORDER BY id_galeria_imagem DESC LIMIT 8";
                                 $vrsExecutaClientes = mysqli_query($Conexao, $vsSqlClientes) or die("Erro ao efetuar a operação no banco de dados! <br> Arquivo:" . __FILE__ . "<br>Linha:" . __LINE__ . "<br>Erro:" . mysqli_error($Conexao));
                                 while ($voResultadoClientes = mysqli_fetch_object($vrsExecutaClientes)) {
                                     ?>
@@ -238,6 +238,17 @@
                         <div class="col-md-6 padding-top-20 benefits">
                             <h3><?php echo $voResultadoSobre->titulo ?></h3>
                             <?php echo $voResultadoSobre->texto ?>
+                            <ul>
+                                <?php
+                                $vsSqlSobreLista = "SELECT titulo, icone FROM informacoes WHERE id_conteudo_personalizado = 5 ORDER BY id_informacoes";
+                                $vrsExecutaSobreLista = mysqli_query($Conexao, $vsSqlSobreLista) or die("Erro ao efetuar a operação no banco de dados! <br> Arquivo:" . __FILE__ . "<br>Linha:" . __LINE__ . "<br>Erro:" . mysqli_error($Conexao));
+                                while ($voResultadoSobreLista = mysqli_fetch_object($vrsExecutaSobreLista)) {
+                                    ?>
+                                    <li><i class="<?php echo $voResultadoSobreLista->icone ?>"></i><?php echo $voResultadoSobreLista->titulo ?></li>
+                                    <?php
+                                }
+                                ?>
+                            </ul>
                             <a href="<?php echo $voResultadoSobre->link ?>" class="btn-blue scrool">Vamos fazer negócio?</a>
                         </div>
                         <div class="col-md-6">
@@ -353,6 +364,17 @@
             $("#carouselIndicators2 .carousel-item:first").addClass("active");
             $("#carouselIndicators .carousel-item:first").addClass("active");
             $("#preloader").fadeOut("slow");
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-E906SZ66VP"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'G-E906SZ66VP');
         </script>
 
     </body>

@@ -8,10 +8,10 @@ define("URL", "/rfmotors/");
 define("SERVIDOR", "127.0.0.1");
 define("BANCO", "rfmotors_site");
 define("USUARIO", "root");
-define("SENHA", "!@#gd94!@#");
+define("SENHA", "");
 
 /* CONFIG SERVIDOR */
-//define("URL", "/site/");
+//define("URL", "/");
 //define("SERVIDOR", "127.0.0.1");
 //define("BANCO", "rfmotors_site");
 //define("USUARIO", "rfmotors_admin");
